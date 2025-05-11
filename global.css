@@ -38,7 +38,7 @@ body {
 
   #map svg circle {
     pointer-events: auto;       /* Enable interaction */
-    fill: steelblue;
+    /* fill: steelblue; */
     fill-opacity: 0.6;
     stroke: white;
     stroke-width: 1;
@@ -69,4 +69,50 @@ body {
     font-style: italic;
   }
   
+  circle {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+      in oklch,
+      var(--color-departures) calc(100% * var(--departure-ratio)),
+      var(--color-arrivals)
+    );
+    fill: var(--color);
+  }
+  
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-block: 1.5em;
+    font-size: 0.9em;
+  }
+  
+  .legend-title {
+    font-weight: bold;
+  }
+  
+  .legend > div:not(.legend-title) {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+      in oklch,
+      var(--color-departures) calc(100% * var(--departure-ratio)),
+      var(--color-arrivals)
+    );
+  }
+  
+  /* The colored square (swatch) */
+  .legend > div:not(.legend-title)::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--color);
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #0002; /* subtle border */
+  }
   
