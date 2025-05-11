@@ -35,3 +35,38 @@ body {
     /* background: yellow; */
     /* opacity: 0.5; */
   }
+
+  #map svg circle {
+    pointer-events: auto;       /* Enable interaction */
+    fill: steelblue;
+    fill-opacity: 0.6;
+    stroke: white;
+    stroke-width: 1;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    gap: 1em;
+    padding: 0.5em 1em;
+  }
+  
+  header label {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  header time,
+  header em {
+    display: block;
+    margin-top: 0.25em;
+  }
+  
+  header em {
+    color: #777;
+    font-style: italic;
+  }
+  
+  
